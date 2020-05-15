@@ -1,0 +1,7 @@
+setup.py
+src/iwaiwa/__init__.py
+src/iwaiwa/sample.py
+src/iwaiwa.egg-info/PKG-INFO
+src/iwaiwa.egg-info/SOURCES.txt
+src/iwaiwa.egg-info/dependency_links.txt
+src/iwaiwa.egg-info/top_level.txt
