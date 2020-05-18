@@ -1,0 +1,27 @@
+name: Amazon S3 Sample
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: Install S3 package
+        run: |
+          echo "Hello"
+          aws s3 ls s3://iwasawa-test-bucket/
+          pip3 install https://iwasawa-test-bucket.s3-ap-northeast-1.amazonaws.com/iwaiwa-0.1.0-py3-none-any.whl
+          pip3 list | grep iwaiwa 

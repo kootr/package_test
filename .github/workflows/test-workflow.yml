@@ -1,0 +1,14 @@
+name: test_workflow
+on: [push]
+
+jobs:
+  pip-install-the-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: python-linter
+        run: pip install --upgrade pip flake8 flake8-docstrings
